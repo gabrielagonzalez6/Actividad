@@ -18,9 +18,9 @@ class ReadFile < ApplicationRecord
 	      if option == 'Hoy'
 	        @reporte = ReadFile.where('fecha = ?', d.strftime('%F'))
 	      elsif option == 'Mes'
-	        @reporte = ReadFile.where('strftime("%m-%Y", fecha) = ?', d.strftime('%m-%Y'))
+	        @reporte = ReadFile.where('extract(month from fecha) = ? and extract(year from fecha) = ?', d.strftime('%m'), d.strftime('%Y'))
 	      elsif option == 'Año'
-	        @reporte = ReadFile.where('strftime("%Y", fecha) = ?', d.strftime('%Y'))
+	        @reporte = ReadFile.where('extract(year from fecha) = ?', d.strftime('%Y'))
 	      end
   		end
 
