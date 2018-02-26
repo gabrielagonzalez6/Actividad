@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180223015520) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "models", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -25,23 +28,13 @@ ActiveRecord::Schema.define(version: 20180223015520) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_models_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_models_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "read_files", force: :cascade do |t|
     t.date     "fecha"
     t.string   "referencia"
-    t.string   "descripcion"
-    t.string   "monto"
-    t.string   "saldo"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "reportes", force: :cascade do |t|
-    t.date     "fecha"
-    t.integer  "referencia"
     t.string   "descripcion"
     t.string   "monto"
     t.string   "saldo"
