@@ -1,8 +1,8 @@
-class CreateReportes < ActiveRecord::Migration[5.0]
+class CreateReadFiles < ActiveRecord::Migration[5.0]
   def change
-    create_table :reportes do |t|
+    create_table :read_files do |t|
       t.date :fecha
-      t.integer :referencia
+      t.string :referencia
       t.string :descripcion
       t.string :monto
       t.string :saldo

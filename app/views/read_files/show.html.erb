@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @read_file.fecha %>
+</p>
+
+<p>
+  <strong>Referencia:</strong>
+  <%= @read_file.referencia %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @read_file.descripcion %>
+</p>
+
+<p>
+  <strong>Monto:</strong>
+  <%= @read_file.monto %>
+</p>
+
+<p>
+  <strong>Saldo:</strong>
+  <%= @read_file.saldo %>
+</p>
+
+<%= link_to 'Edit', edit_read_file_path(@read_file) %> |
+<%= link_to 'Back', read_files_path %>

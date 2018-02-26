@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Read Files</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Referencia</th>
+      <th>Descripcion</th>
+      <th>Monto</th>
+      <th>Saldo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @read_files.each do |read_file| %>
+      <tr>
+        <td><%= read_file.fecha %></td>
+        <td><%= read_file.referencia %></td>
+        <td><%= read_file.descripcion %></td>
+        <td><%= read_file.monto %></td>
+        <td><%= read_file.saldo %></td>
+        <td><%= link_to 'Show', read_file %></td>
+        <td><%= link_to 'Edit', edit_read_file_path(read_file) %></td>
+        <td><%= link_to 'Destroy', read_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Read File', new_read_file_path %>

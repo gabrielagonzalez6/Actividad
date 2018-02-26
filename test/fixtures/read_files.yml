@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fecha: 2018-02-22
+  referencia: MyString
+  descripcion: MyString
+  monto: MyString
+  saldo: MyString
+
+two:
+  fecha: 2018-02-22
+  referencia: MyString
+  descripcion: MyString
+  monto: MyString
+  saldo: MyString

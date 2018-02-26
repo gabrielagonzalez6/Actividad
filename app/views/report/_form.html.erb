@@ -1,0 +1,24 @@
+<%= form_tag(:action => "get_params", :controller=>"report", method: "post") do %>
+
+	<%= collection_radio_buttons(:opt, nil, [['fechas']], :first, :first) do |r| %>
+		<%= r.label do %>
+			<%= r.radio_button %>
+			<%= select_date Date.today, prefix: :date_ini, end_year:Date.today.year, 
+				:order => [:day, :month, :year], use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)%>
+			<%= select_date Date.today, prefix: :date_fin, end_year:Date.today.year, 
+				:order => [:day, :month, :year], use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)%>
+		<% end %>
+	<% end %>
+
+	<%= collection_radio_buttons(:opt, nil, [['seleccion']], :first, :first) do |r| %>
+		<%= r.label do %>
+			<%= r.radio_button %>
+			<%= select_tag 'option', options_for_select(['Hoy', 'Mes', 'Año']) %>
+		<% end %>
+	<% end %>
+
+
+   <div class="actions">
+     <%= submit_tag %>
+   </div>
+ <% end %>
