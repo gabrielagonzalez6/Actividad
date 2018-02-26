@@ -36,3 +36,5 @@ production:
   database: Actividad_production
   pool: 5
   timeout: 5000
+  username: Actividad
+  password: <%= ENV['ACTIVIDAD_DATABASE_PASSWORD'] %>
