@@ -14,7 +14,12 @@
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
-                <%if @reporte.empty?  %>
+              <%if @reporte.nil?  %>
+                  <div class="alert alert-warning" role="alert">
+                    <span class="sr-only">Alerta:</span>
+                    Seleccione una opción para consultar.
+                  </div>
+                <% elsif @reporte.empty?%>
                   <div class="alert alert-warning" role="alert">
                     <span class="sr-only">Alerta:</span>
                     No existen registros. Realice nueva consulta
@@ -28,7 +33,6 @@
                             <th class="text-center">Descripción</th>
                             <th class="text-center">Importe</th>
                             <th class="text-center">Saldo</th>
-                            <th class="text-center" colspan="1">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
