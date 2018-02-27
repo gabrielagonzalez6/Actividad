@@ -1,9 +1,32 @@
 <%= form_tag('upload_file', multipart: true) do |f| %>
-  
-  <%= file_field_tag :archivo %>
 
-  <div class="actions">
-    <%= submit_tag %>
+  <div class="row">
+    <div class="form-inputs">
+      <div class="col-lg-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  Cargar Archivo
+              </div>
+              <div class="panel-body">
+                  <div class="row">
+                      <div class="col-lg-6">
+                      	<%= file_field_tag :archivo %>         
+                      </div>
+                                <!-- /.col-lg-6 (nested) -->
+                  </div>
+                  <!-- /.row (nested) -->
+                  <div class="form-actions text-center">
+                      <hr/>
+                      <%= submit_tag "Cargar", :class => "btn btn-primary" %>
+                      <%= link_to 'Atras', read_files_url, :class => "btn btn-default" %>
+                  </div>
+              </div>
+              <!-- /.panel-body -->
+          </div>
+          <!-- /.panel -->
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
   </div>
   
 <% end %>

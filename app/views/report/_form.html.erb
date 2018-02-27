@@ -1,24 +1,54 @@
 <%= form_tag(:action => "get_params", :controller=>"report", method: "post") do %>
 
-	<%= collection_radio_buttons(:opt, nil, [['fechas']], :first, :first) do |r| %>
-		<%= r.label do %>
-			<%= r.radio_button %>
-			<%= select_date Date.today, prefix: :date_ini, end_year:Date.today.year, 
-				:order => [:day, :month, :year], use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)%>
-			<%= select_date Date.today, prefix: :date_fin, end_year:Date.today.year, 
-				:order => [:day, :month, :year], use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)%>
-		<% end %>
-	<% end %>
+	 <div class="row">
+	    <div class="form-inputs">
+	      <div class="col-lg-10">
+	          <div class="panel panel-default">
+	              <div class="panel-heading">
+	                  Reporte por filtros
+	              </div>
+	              <div class="panel-body">
+	                  <div class="row">
+	                      <div class="col-lg-8">
+	                      	<%= collection_radio_buttons(:opt, nil, [['fechas']], :first, :first) do |r| %>
+								<%= r.label do %>
+									<%= r.radio_button %>
+									<label class="control-label">Desde: </label>
+									<%= select_date Date.today, prefix: :date_ini, end_year:Date.today.year, 
+										:order => [:day, :month, :year], use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)%>
+									</div>
 
-	<%= collection_radio_buttons(:opt, nil, [['seleccion']], :first, :first) do |r| %>
-		<%= r.label do %>
-			<%= r.radio_button %>
-			<%= select_tag 'option', options_for_select(['Hoy', 'Mes', 'Año']) %>
-		<% end %>
-	<% end %>
-
-
-   <div class="actions">
-     <%= submit_tag %>
-   </div>
+									<label class="control-label">Hasta: </label>
+									<%= select_date Date.today, prefix: :date_fin, end_year:Date.today.year, 
+										:order => [:day, :month, :year], use_month_names: %w(Enero Febrero Marzo Abril Mayo Junio Julio Agosto Septiembre Octubre Noviembre Diciembre)%>
+								<% end %>
+							<% end %>        
+	                      </div>
+	                                <!-- /.col-lg-6 (nested) -->
+	                       <div class="col-lg-8">
+	                       	<br>
+	                      	<%= collection_radio_buttons(:opt, nil, [['seleccion']], :first, :first) do |r| %>
+								<%= r.label do %>
+									<%= r.radio_button %>
+									<%= select_tag 'option', options_for_select(['Hoy', 'Mes', 'Año']) %>
+								<% end %>
+							<% end %>       
+	                      </div>
+	                  </div>
+	                  <!-- /.row (nested) -->
+	                  <div class="form-actions text-center">
+	                      <hr/>
+	                      <%= submit_tag "Consultar", :class => "btn btn-primary" %>
+	                      <%= link_to 'Atras', read_files_url, :class => "btn btn-default" %>
+	                      <br>
+	                      <br>
+	                  </div>
+	              </div>
+	              <!-- /.panel-body -->
+	          </div>
+	          <!-- /.panel -->
+	      </div>
+	      <!-- /.col-lg-12 -->
+	    </div>
+	  </div>
  <% end %>

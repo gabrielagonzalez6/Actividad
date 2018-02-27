@@ -1,6 +1,7 @@
 class ReportController < ApplicationController 
-  
 
+  layout 'admin'
+  
   def filter
   	
   end
@@ -15,6 +16,9 @@ class ReportController < ApplicationController
     if opt.present?
       @reporte = ReadFile.reporte(date_ini,date_fin,option,opt)
       puts @reporte
+    elsif opt.any? 
+      redirect_to report_filter_url
+      flash[:notice] = "Seleccione una opción para consultar"
     end
 
   end

@@ -2,6 +2,8 @@ class ReadFilesController < ApplicationController
   before_action :set_read_file, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :null_session
 
+  layout 'admin'
+
   require 'date'
 
   def read_file
@@ -65,7 +67,7 @@ class ReadFilesController < ApplicationController
   # GET /read_files
   # GET /read_files.json
   def index
-    @read_files = ReadFile.all
+    @read_files = ReadFile.all.order(fecha: :desc, referencia: :desc)
   end
 
   # GET /read_files/1

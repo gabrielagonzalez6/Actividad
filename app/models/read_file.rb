@@ -4,15 +4,16 @@ class ReadFile < ApplicationRecord
 
     def self.reporte(date_ini,date_fin,option,opt)
 		puts opt
-		r = "fechas"
+		f = "fechas"
+		s = "seleccion"
 
-		if opt.include?r
+		if opt.include?f
 			puts 'entra'
 			puts date_ini
 			puts date_fin
 	      @reporte = ReadFile.where(fecha: date_ini..date_fin)
-	  	else
-	  		
+	  	elsif opt.include?s
+	  				
 	      d = Date.today
 	  
 	      if option == 'Hoy'
@@ -22,6 +23,7 @@ class ReadFile < ApplicationRecord
 	      elsif option == 'Año'
 	        @reporte = ReadFile.where('extract(year from fecha) = ?', d.strftime('%Y'))
 	      end
+
   		end
 
 	    return @reporte
