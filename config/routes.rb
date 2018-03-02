@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  root to: 'home#index'
+  
   resources :read_files
-
-  root to: 'home#index', via: 'get'
 
    get  "dropbox/main"
    post "dropbox/upload"
