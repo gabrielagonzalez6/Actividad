@@ -2,8 +2,6 @@ class ReadFilesController < ApplicationController
   before_action :set_read_file, only: [:show, :edit, :update, :destroy]
   protect_from_forgery with: :null_session
 
-  layout 'admin'
-
   require 'date'
 
   def read_file

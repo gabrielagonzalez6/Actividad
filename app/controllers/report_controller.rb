@@ -1,6 +1,4 @@
 class ReportController < ApplicationController 
-
-  layout 'admin'
   
   def filter
   	
